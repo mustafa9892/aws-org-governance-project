@@ -1,7 +1,7 @@
 # AWS Multi-Account Governance Project
 
 ## Overview
-This project demonstrates a multi-account AWS environment using 0 with governance enforced through 1.
+This project demonstrates a multi-account AWS environment using AWS Organisations with governance enforced through Service Control Policies.
 
 The setup includes separate Organizational Units (OUs) for Dev, Prod, and Security to enforce isolation, cost control, and security best practices.
 
@@ -67,4 +67,4 @@ Root
 
 - Implement AWS Service Catalogue for controlled provisioning in Prod  
 - Add monitoring and logging  
-- Refine SCP strategy for production-grade governa
+- Refine SCP strategy for production-grade governance
