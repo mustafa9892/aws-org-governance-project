@@ -23,7 +23,7 @@ Root
 
 ### Dev OU SCP
 - Restricts EC2 instance launches to `t3.micro`  
-- Denies EC2 and S3 operations outside `ap-south-1`  
+- Denies EC2 operations outside `us-east-1`  
 - Denies creation of Internet Gateway and NAT Gateway  
 - Denies usage of global services like CloudFront and Global Accelerator  
 
@@ -49,7 +49,7 @@ Root
 ## Testing
 
 - Verified SCP enforcement by logging into Dev account
-- Attempted EC2 launches outside `ap-south-1` → Denied  
+- Attempted EC2 launches outside `us-east-1` → Denied  
 - Attempted restricted services → Denied    
 
 ---
