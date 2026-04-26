@@ -71,6 +71,8 @@ Root
 
 ## Stages of the project:
 
+
+
 ## Stage 1 -  Service Catalog Setup & Portfolio Sharing
 
 ## Objective:
@@ -123,6 +125,9 @@ Enable controlled provisioning via launch constraints
 ## Key Learning:
  - Service Catalog UI depends on principal resolution, not just permissions. Assumed roles may break provisioning visibility.
 
+<img width="1024" height="559" alt="image_137778ae-c62c-4894-bfd2-f736657aaf2e" src="https://github.com/user-attachments/assets/cdb56e11-7ecd-4ba5-9c2b-90d90bfc8be4" />
+
+
 ## Stage 4: Infrastructure as Code (CloudFormation Debugging)
 
 ## Objective:
@@ -156,6 +161,9 @@ Enable controlled provisioning via launch constraints
  - AWS enforces architectural best practices (like multi-AZ) at deployment time.
 
 ## Stage 6: Incident Response & Debug Access Design (Prod + Security Accounts)
+
+<img width="1024" height="559" alt="image_8d07b512-9be1-4e63-9044-71402366987a" src="https://github.com/user-attachments/assets/81d4ecb4-96a6-403b-84ae-c87f2cef5bee" />
+
 
 In this stage, I focused on designing and testing operational access for debugging and incident response across accounts. The goal was to move from theoretical IAM design to real, testable access patterns under pressure scenarios.
 
@@ -237,6 +245,9 @@ In this stage, I focused on designing and testing operational access for debuggi
     - security (least privilege, MFA)
     - operational simplicity (fast access during incidents)
  - Tag-based access control works well for resource scoping, but not for identity enforcement.
+
+<img width="1024" height="559" alt="image_8d07b512-9be1-4e63-9044-71402366987a" src="https://github.com/user-attachments/assets/d637e4ca-e7fe-45d7-ad80-e8ca53dab54d" />
+
 
 ## Current state
  - Debugger access in Production: working and validated (including script execution)
