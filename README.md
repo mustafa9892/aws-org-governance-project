@@ -17,7 +17,7 @@ Root
 └── Prod OU  
     └── Prod Account  
 
-    <img width="1024" height="558" alt="image" src="https://github.com/user-attachments/assets/c0f68b80-da1a-47b9-a0ae-0c3c44255758" />
+<img width="1024" height="558" alt="image" src="https://github.com/user-attachments/assets/c0f68b80-da1a-47b9-a0ae-0c3c44255758" />
 
 
 ---
