@@ -17,7 +17,7 @@ Root
 └── Prod OU  
     └── Prod Account  
 
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/2d2d3e2c-547e-4631-87c8-cd2db95ef9a2" />
+<img width="1024" height="558" alt="image" src="https://github.com/user-attachments/assets/680707ea-2015-4d5e-81ab-a96a59f08d0f" />
 
 
 
@@ -164,7 +164,8 @@ Enable controlled provisioning via launch constraints
 
 ## Stage 6: Incident Response & Debug Access Design (Prod + Security Accounts)
 
-<img width="1024" height="559" alt="image_8d07b512-9be1-4e63-9044-71402366987a" src="https://github.com/user-attachments/assets/81d4ecb4-96a6-403b-84ae-c87f2cef5bee" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/b8a421c8-e6b6-43e3-a410-44a2f9094b23" />
+
 
 
 In this stage, I focused on designing and testing operational access for debugging and incident response across accounts. The goal was to move from theoretical IAM design to real, testable access patterns under pressure scenarios.
