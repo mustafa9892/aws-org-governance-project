@@ -78,7 +78,8 @@ Root
 
 
 ## Stage 1 -  Service Catalog Setup & Portfolio Sharing
-<img width="1024" height="559" alt="image_137778ae-c62c-4894-bfd2-f736657aaf2e" src="https://github.com/user-attachments/assets/cdb56e11-7ecd-4ba5-9c2b-90d90bfc8be4" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/d5d4b50c-8159-4934-b905-fb80047fc951" />
+
 
 ## Objective:
 Create centralized provisioning using AWS Service Catalog
