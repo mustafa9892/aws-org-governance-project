@@ -259,3 +259,159 @@ In this stage, I focused on designing and testing operational access for debuggi
  - Cross-account assumption flow: validated
  -MFA-based CLI workflow: partially working (needs cleanup)
  -Session Manager visibility inconsistency: under investigation
+
+---
+
+## Stage 7 — Incident Response Automation & Human-in-the-Loop Containment
+
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/887e0a18-e56b-43a8-ae88-2b502513fdd4" />
+
+
+This stage focused on evolving the project from basic governance controls into a lightweight cloud incident response workflow capable of:
+
+- detecting suspicious EC2 activity
+- calculating contextual severity scores
+- notifying responders through Slack
+- requiring explicit approval before containment
+- automatically isolating impacted instances
+
+---
+
+## Architecture Flow
+
+```text
+EC2 Detection Script
+→ Severity Scoring & Signal Correlation
+→ Lambda Alerting
+→ Slack Incident Notification
+→ Human Approval Button
+→ API Gateway
+→ Containment Lambda
+→ Security Group Isolation
+```
+
+---
+
+## Detection Layer
+
+A host-based Bash detection script was deployed on EC2 instances to collect lightweight forensic telemetry including:
+
+- running processes
+- outbound network connections
+- login activity
+- execution context
+
+The script evaluates indicators such as:
+
+- suspicious process patterns
+- reverse shell heuristics
+- outbound connection activity
+- root user execution
+
+Detection results are packaged into structured JSON payloads and sent to AWS Lambda for downstream processing.
+
+---
+
+## Severity Scoring Refinement
+
+The initial implementation treated isolated indicators too aggressively, causing false-positive HIGH severity alerts during normal administrative operations.
+
+To reduce operational noise, the scoring model was refined to become more context-aware through:
+
+- lower weighting for weak standalone signals
+- signal correlation before escalation
+- contextual severity calculation
+
+Example:
+
+```text
+Root activity alone → LOW
+Suspicious process alone → MEDIUM
+Root + suspicious process correlation → HIGH
+```
+
+This refinement improved alert confidence while maintaining responsiveness to suspicious behavior.
+
+---
+
+## Slack Alerting Workflow
+
+An AWS Lambda function was implemented to:
+
+- parse incident payloads
+- format structured incident alerts
+- send notifications into Slack channels
+
+Slack interactive approval buttons were added to support responder-driven containment decisions.
+
+Example actions:
+
+- Approve Containment
+- Reject
+
+---
+
+## API Gateway Integration
+
+Slack interactivity requests were routed through Amazon API Gateway to securely invoke backend containment logic.
+
+This enabled:
+
+- external Slack interaction handling
+- Lambda invocation through HTTPS endpoints
+- structured action payload processing
+
+---
+
+## Containment Lambda
+
+A dedicated containment Lambda was implemented to:
+
+- validate Slack responder identity
+- authorize containment actions
+- modify EC2 Security Groups dynamically
+
+Upon approval, the instance is moved into a quarantine Security Group to isolate it from production traffic.
+
+---
+
+## Key Challenges Encountered
+
+During implementation, several integration and debugging challenges were encountered, including:
+
+- IAM permission refinement
+- Slack interactivity configuration
+- Lambda payload parsing
+- authorization validation logic
+- false-positive severity escalation
+
+These iterations significantly improved understanding of:
+
+- cloud-native incident response workflows
+- event-driven automation
+- detection engineering concepts
+- operational alert design
+
+---
+
+## Current State
+
+Current implementation provides:
+
+- lightweight heuristic-based detection
+- context-aware severity scoring
+- Slack-driven human approval workflow
+- automated EC2 containment orchestration
+
+---
+
+## Planned Improvements
+
+Future iterations will focus on:
+
+- behavior-based detection
+- anomaly-aware scoring
+- threat intelligence enrichment
+- persistence detection
+- improved forensic collection
+- reducing heuristic dependence
